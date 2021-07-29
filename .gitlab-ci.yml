@@ -18,8 +18,8 @@ include:
 
 stages:          # List of stages for jobs, and their order of execution
   - build
-  # - test
   - unit-tests
+  # - test
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
@@ -28,17 +28,17 @@ build-job:       # This job runs in the build stage, which runs first.
     - echo "Compile complete."
 
 
-dependency_scanning:
-  stage: unit-tests
+# dependency_scanning:
+#   stage: unit-tests
 
-license_scanning:
-  stage: unit-tests
+# license_scanning:
+#   stage: unit-tests
 
 sast:
   stage: unit-tests
 
-secret-analyzer:
-  stage: unit-tests
+# secret-analyzer:
+#   stage: unit-tests
 
 # unit-test-job:   # This job runs in the test stage.
 #   stage: test    # It only starts when the job in the build stage completes successfully.
