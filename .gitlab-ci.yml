@@ -37,7 +37,7 @@ license_scanning:
 sast:
   stage: unit-tests
 
-.secret-analyzer:
+secret-analyzer:
   stage: unit-tests
 
 # unit-test-job:   # This job runs in the test stage.
