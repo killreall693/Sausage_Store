@@ -1,6 +1,3 @@
-image:
-  name: sonarsource/sonar-scanner-cli:latest
-  entrypoint: [""]
 variables:
   SONAR_TOKEN: "4b0e6c8d3faf7cef590a4a6718582b9356529092"  # TOKEN генерируется при создании проекта в sonarqube
   SONAR_HOST_URL: "http://130.193.58.242:9000"
@@ -8,7 +5,8 @@ variables:
 sonarqube-check:
   stage: test
   script:
-    - sonar-scanner -X -Dsonar.qualitygate.wait=true -Dsonar.projectKey=myproject # sonarqube айдентика проекта
+    - mvn verify sonar:sonar
+    #- sonar-scanner -X -Dsonar.qualitygate.wait=true -Dsonar.projectKey=myproject # sonarqube айдентика проекта
   allow_failure: true
   only: # Обнаруживать только основные запросы на слияние и отправку основного кода ветки, версия sonarqube-ce поддерживает только анализ основных веток
     #- merge_requests
