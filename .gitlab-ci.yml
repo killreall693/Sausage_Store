@@ -1,13 +1,14 @@
-variables:
-  SONAR_TOKEN: "4b0e6c8d3faf7cef590a4a6718582b9356529092"  # TOKEN генерируется при создании проекта в sonarqube
-  SONAR_HOST_URL: "http://130.193.58.242:9000"
-  GIT_DEPTH: 0
 sonarqube-check:
-  stage: test
-  script:
+  image: maven:3.6.3-jdk-11
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script: 
     - mvn verify sonar:sonar
-    #- sonar-scanner -X -Dsonar.qualitygate.wait=true -Dsonar.projectKey=myproject # sonarqube айдентика проекта
   allow_failure: true
-  only: # Обнаруживать только основные запросы на слияние и отправку основного кода ветки, версия sonarqube-ce поддерживает только анализ основных веток
-    #- merge_requests
-    - master
+  only:
+    - master # or the name of your main branch
