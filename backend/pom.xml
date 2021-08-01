@@ -15,10 +15,8 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>16</java.version>
-    </properties>
-    <properties>
-    <sonar.projectKey>test_manual</sonar.projectKey>
-    <sonar.qualitygate.wait>true</sonar.qualitygate.wait>
+        <sonar.projectKey>test_manual</sonar.projectKey>
+        <sonar.qualitygate.wait>true</sonar.qualitygate.wait>
     </properties>
     <dependencies>
         <dependency>
