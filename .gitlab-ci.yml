@@ -7,9 +7,8 @@ sonarqube-check:
     key: "${CI_JOB_NAME}"
     paths:
       - .sonar/cache
-      - .sonar/backend/
   script: 
-    - mvn verify sonar:sonar
+    - mvn -e verify sonar:sonar
   allow_failure: true
   only:
     - master # or the name of your main branch
