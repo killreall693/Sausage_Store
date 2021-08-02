@@ -9,9 +9,8 @@ sonarqube-check:
       - .sonar/cache
   script: 
     - cd backend
-    - mvn -e verify sonar:sonar
-    - cd target
-    - java -jar demo-0.0.1-SNAPSHOT.jar
+    - mvn -e verify sonar:sonar -Dsonar.qualitygate.wait=true
+ 
 
   allow_failure: true
   only:
