@@ -1,4 +1,24 @@
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - unit-tests
+  - sonar
+
+
+build-job:     
+  stage: build
+  script:
+    - echo "Do something.."
+
+
+sast:
+  stage: unit-tests
+
+
 sonarqube-check:
+  stage: sonar
   image: maven:3.8-openjdk-16
   variables:
     SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
