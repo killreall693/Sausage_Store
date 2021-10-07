@@ -9,8 +9,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 @EnableScheduling
 @Configuration
 public class ReportGeneratorTask {
-    final private Logger reporter = LoggerFactory.getLogger("ReportGenerator");
-    final private Logger logger = LoggerFactory.getLogger(ReportGeneratorTask.class);
+    Logger reporter = LoggerFactory.getLogger("ReportGenerator");
+    Logger logger = LoggerFactory.getLogger(ReportGeneratorTask.class);
 
     @Scheduled(fixedDelay = 60000)
     public void generate() {
