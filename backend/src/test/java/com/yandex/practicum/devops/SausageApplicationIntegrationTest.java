@@ -54,15 +54,14 @@ public class SausageApplicationIntegrationTest {
         Iterable<Product> products = responseEntity.getBody();
         Assertions
           .assertThat(products)
-          .hasSize(7);
+          .hasSize(6);
 
-        assertThat(products, hasItem(hasProperty("name", is("TV Set"))));
-        assertThat(products, hasItem(hasProperty("name", is("Game Console"))));
-        assertThat(products, hasItem(hasProperty("name", is("Sofa"))));
-        assertThat(products, hasItem(hasProperty("name", is("Icecream"))));
-        assertThat(products, hasItem(hasProperty("name", is("Beer"))));
-        assertThat(products, hasItem(hasProperty("name", is("Phone"))));
-        assertThat(products, hasItem(hasProperty("name", is("Watch"))));
+        assertThat(products, hasItem(hasProperty("name", is("Сливочная"))));
+        assertThat(products, hasItem(hasProperty("name", is("Особая"))));
+        assertThat(products, hasItem(hasProperty("name", is("Молочная"))));
+        assertThat(products, hasItem(hasProperty("name", is("Нюренбергская"))));
+        assertThat(products, hasItem(hasProperty("name", is("Мюнхенская"))));
+        assertThat(products, hasItem(hasProperty("name", is("Русская"))));
     }
 
     @Test
@@ -91,7 +90,7 @@ public class SausageApplicationIntegrationTest {
     private OrderController.OrderForm prepareOrderForm() {
         OrderController.OrderForm orderForm = new OrderController.OrderForm();
         OrderProductDto productDto = new OrderProductDto();
-        productDto.setProduct(new Product(1L, "TV Set", 300.00, "http://placehold.it/200x100"));
+        productDto.setProduct(new Product(1L, "Русская", 300.00, "http://placehold.it/200x100"));
         productDto.setQuantity(2);
         orderForm.setProductOrders(Collections.singletonList(productDto));
 

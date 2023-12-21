@@ -18,7 +18,7 @@ Install Java 16 and maven and run:
 cd backend
 mvn package
 cd target
-java -jar demo-0.0.1-SNAPSHOT.jar
+java -jar sausage-store-0.0.1-SNAPSHOT.jar
 ```
 
 ### Frontend
@@ -26,10 +26,11 @@ java -jar demo-0.0.1-SNAPSHOT.jar
 Install NodeJS and npm on your computer and run:
 
 ```bash
-npm install -g @angular/cli
 cd frontend
 npm install
-ng serve --proxy-config proxy-conf.json
+npm run build
+npm install -g http-server
+sudo http-server ./dist/frontend/ -p 80 --proxy http://localhost:8080
 ```
 
-Then open your browser and go to [http://localhost:4200/#](http://localhost:4200/#)
+Then open your browser and go to [http://localhost](http://localhost)
